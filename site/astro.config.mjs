@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://alena.cashflow-game.ru',
+  site: 'https://alena-emotolog.ru',
   outDir: '/srv/alena-site',
 
   vite: {

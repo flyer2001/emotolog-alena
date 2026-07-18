@@ -1,5 +1,5 @@
 # Robots.txt для эмотолог Алёна Опанасенко
-# https://alena.cashflow-game.ru (dev) → https://alena-emotolog.ru (prod)
+# https://alena-emotolog.ru (prod)
 
 # Поисковые системы РФ
 User-agent: Yandex
@@ -66,4 +66,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://alena.cashflow-game.ru/sitemap-index.xml
+Sitemap: https://alena-emotolog.ru/sitemap-index.xml
