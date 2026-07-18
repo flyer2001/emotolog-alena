@@ -1,0 +1,69 @@
+# Robots.txt для эмотолог Алёна Опанасенко
+# https://alena.cashflow-game.ru (dev) → https://alena-emotolog.ru (prod)
+
+# Поисковые системы РФ
+User-agent: Yandex
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Mail.RU_Bot
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# AI-crawlers (явно разрешаем — многие блокируют по умолчанию)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# Всё остальное — разрешено
+User-agent: *
+Allow: /
+
+Sitemap: https://alena.cashflow-game.ru/sitemap-index.xml

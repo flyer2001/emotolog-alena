@@ -7,13 +7,92 @@ interface Props {
 	title?: string;
 	description?: string;
 	noindex?: boolean;
+	ogImage?: string;
 }
 
 const {
 	title = 'Опанасенко Алёна — эмотолог. Работа с эмоциями и телом. Онлайн + Самара',
 	description = 'Эмотология — не про «поговорить», а конкретный метод работы с эмоциями через тело. Результат за 1-3 сессии. Бесплатная 15-минутная консультация.',
 	noindex = true,
+	ogImage = '/og-default.jpg',
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImageUrl = new URL(ogImage, Astro.site).toString();
+
+const personSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Опанасенко Алёна',
+	alternateName: 'Алёна Опанасенко',
+	jobTitle: 'Эмотолог',
+	description:
+		'Практикующий эмотолог. Работа с непрожитыми эмоциями через тело. Обучалась у Александра Шахова.',
+	url: Astro.site?.toString(),
+	image: ogImageUrl,
+	sameAs: [
+		'https://t.me/alena_emotolog',
+		'https://vk.com/alena_emotolog',
+	],
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Самара',
+		addressCountry: 'RU',
+	},
+	knowsAbout: [
+		'Эмотология',
+		'Работа с эмоциями',
+		'Панические атаки',
+		'Эмоциональное переедание',
+		'Выгорание',
+		'Психосоматика',
+	],
+	alumniOf: {
+		'@type': 'Person',
+		name: 'Александр Шахов',
+		description: 'Автор метода эмотологии',
+	},
+};
+
+const businessSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'ProfessionalService',
+	name: 'Эмотолог Алёна Опанасенко',
+	description:
+		'Индивидуальные консультации эмотолога онлайн и в Самаре. Работа с эмоциями через тело.',
+	url: Astro.site?.toString(),
+	image: ogImageUrl,
+	priceRange: '1500-2500 ₽',
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Самара',
+		addressCountry: 'RU',
+	},
+	areaServed: [
+		{ '@type': 'Country', name: 'Россия' },
+		{ '@type': 'City', name: 'Самара' },
+	],
+	provider: {
+		'@type': 'Person',
+		name: 'Опанасенко Алёна',
+	},
+	offers: [
+		{
+			'@type': 'Offer',
+			name: 'Экспресс-консультация',
+			description: '15 минут онлайн, знакомство с методом',
+			price: '0',
+			priceCurrency: 'RUB',
+		},
+		{
+			'@type': 'Offer',
+			name: 'Разовая эмосессия',
+			description: '60 минут онлайн, полный алгоритм метода с гарантией возврата',
+			price: '1500',
+			priceCurrency: 'RUB',
+		},
+	],
+};
 ---
 
 <!doctype html>
@@ -23,13 +102,27 @@ const {
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<link rel="canonical" href={canonical} />
+
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		{noindex && <meta name="robots" content="noindex, nofollow" />}
+
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="ru_RU" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:site_name" content="Эмотолог Алёна Опанасенко" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageUrl} />
+
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+		<script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
 	</head>
 	<body class="min-h-screen bg-[#FBEEE4] text-[#6B3A32] font-sans antialiased">
 		<Nav />
