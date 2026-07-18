@@ -2,20 +2,31 @@
 
 > Только открытые `[ ]` / `[~]` items. Закрытые → `CHANGELOG.md`.
 
-## Site (alena.cashflow-game.ru — placeholder live)
+## Site (alena-emotolog.ru — prod live, noindex до апрува)
 
-- [ ] **Домашняя страница v1** — заменить заглушку на полноценный лендинг. Дизайн-direction: `assets/refs/ref{1,2,3}.jpg` (палитра ref1 + структура ref3 + mood-board из ref2). Секции: hero+CTA / об Алёне / услуги / кейсы-отзывы / контакты.
+- [ ] **Апрув контента Алёной** — проверить все тексты (Hero, Pains, Cases, About, FAQ, Pricing) → зафиксировать правки. После апрува снять `noindex` в `site/src/layouts/Layout.astro` (`noindex = false` дефолт).
 - [ ] **Смыслы v1** — вытащить позиционирование/tone из `/root/projects/myRep/Marketing/emotolog/` (project-brief, strategy, content-library), draft'нуть tone of voice + 3 ключевых сообщения → `meanings/`. Алена approve.
-- [ ] **SEO базa** — sitemap.xml, robots.txt (разрешить PerplexityBot, ClaudeBot, GPTBot, Google-Extended), Schema.org JSON-LD (Person, LocalBusiness Самара, Service), meta title/description на страницу.
-- [ ] **Ключевые слова** — собрать через perplexity + Wordstat, сгруппировать по кластерам (ПА, эмоц.переедание, выгорание, эмотолог Самара). Draft'нуть 2-3 блог-страницы под кластер.
+- [ ] **Конверсионные цели в Метрике** — настроить цели через `ym('reachGoal', ...)`:
+  1. **`click_tg_write`** — клик по любой кнопке «Записаться» / «Написать в Telegram» (все CTA ведут на `t.me/alenoch13`)
+  2. **`click_vk`** — клик по ВК-ссылке
+  3. **`click_tg_channel`** — клик по каналу `t.me/alena_emotolog`
+  4. **`form_submit`** — когда добавим форму заявки
+  - В Метрике: **Настройки → Цели → Добавить цель → JavaScript-событие** с соответствующим ID
+  - В коде: обернуть CTA-ссылки в handler `onclick="ym(110847931,'reachGoal','click_tg_write')"` или через event delegation в Layout
+  - Даст: конверсию сайт → лид, воронку по секциям (какой CTA лучше работает), базу для ретаргетинга VK Ads
+- [ ] **Google Search Console + Яндекс.Вебмастер** — регистрация alena-emotolog.ru, подтверждение через DNS TXT или meta-tag, добавление sitemap.xml. Дадут: индексация быстрее, ошибки crawl'а, позиции по запросам.
+- [ ] **Google Analytics 4 / Google Ads gtag** — если планируется реклама в Google (в РФ ограниченно). Заполнить `PUBLIC_GTAG_ID` в `site/.env`.
 - [ ] **Форма заявки** — TG-бот webhook на `/api/lead` (принимает name + phone/tg + текст, шлёт Алене в личку с UTM). Или fallback — прямые CTA на `t.me/alena_emotolog`.
-- [ ] **Аналитика** — Яндекс.Метрика + Google Search Console + Яндекс.Вебмастер: регистрация, счётчик, цели (клик TG/VK, submit формы).
+- [ ] **Страница `/metod`** — под запросы «что такое эмотология», «метод эмотологии». Критичный gap — каждый новый визитор ищет «что это».
+- [ ] **Страница `/samara`** — под гео-кластер (эмотолог Самара, психолог Самара). Schema.org LocalBusiness.
+- [ ] **Страница `/online`** — под «эмотолог онлайн», «психолог онлайн вся Россия».
+- [ ] **Блог — 5 стартовых статей** под топ long-tail: «не могу забыть бывшего», «панические атаки», «эмоциональное переедание», «не знаю чего хочу», «выгорание как выйти». Каждая — 1500-3000 слов + внутренние ссылки на pains + CTA.
 - [ ] **Landing pages под ads** — `/lp/panika`, `/lp/pereedanie` — отдельные страницы под угол креатива VK Ads.
+- [ ] **Регистрация в бизнес-каталогах** — Яндекс.Бизнес (Самара), 2ГИС Самара, Zoon Самара, ProDoctorov Самара, Avito раздел «Услуги психолога» — реальный локальный трафик.
 - [ ] **Мобильная визитка** — vCard-страница `/card`, mobile-first, QR-код (позже).
-- [ ] **Перенос на alena-emotolog.ru** — прописать DNS, добавить Caddy блок, обновить `site` в astro.config, 301 с alena.cashflow-game.ru (см. `site/README.md`).
+- [ ] **OG-картинка `/og-default.jpg`** — 1200×630 для превью в TG/VK/WhatsApp (сейчас используем `alena.jpeg`, но она вертикальная — плохо для landscape-превью).
 
 ## Ops
 
 - [ ] **Создать удалённый GitHub repo** (2026-07-18) — `flyer2001/emotolog-alena` (private). После создания: `git remote add origin git@github-assistant:flyer2001/emotolog-alena.git && git push -u origin main`. SSH host alias `github-assistant` уже настроен (см. `~/.ssh/config` в assistant/myRep).
-- [ ] **Изучить существующие материалы** — `/root/projects/myRep/Marketing/emotolog/` (project-brief, strategy, research-data, content-library, campaign-results, analytics-guide, vk-ads-rules). Понять что уже сделано, что переиспользовать.
-- [ ] **Определить skope MVP** — creative pack для VK Ads / полный лендинг / визитка — что первое после placeholder.
+- [ ] **Изучить существующие материалы** — `/root/projects/myRep/Marketing/emotolog/` (project-brief, strategy, research-data, content-library, campaign-results, analytics-guide, vk-ads-rules). Что переиспользовать в блоге/LP.
