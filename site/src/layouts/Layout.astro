@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Analytics from '../components/Analytics.astro';
 
 interface Props {
 	title?: string;
@@ -11,10 +12,10 @@ interface Props {
 }
 
 const {
-	title = 'Опанасенко Алёна — эмотолог. Работа с эмоциями и телом. Онлайн + Самара',
-	description = 'Эмотология — не про «поговорить», а конкретный метод работы с эмоциями через тело. Результат за 1-3 сессии. Бесплатная 15-минутная консультация.',
+	title = 'Эмотолог Опанасенко Алёна — помощь при тревоге, выгорании, панических атаках. Онлайн по всему миру',
+	description = 'Работа с эмоциями через тело — метод эмотологии (школа А. Шахова). Результат за 1-3 сессии. Онлайн для русскоязычных клиентов по всему миру, офлайн в Самаре. Первая консультация 15 мин бесплатно. От 1500₽.',
 	noindex = true,
-	ogImage = '/og-default.jpg',
+	ogImage = '/alena.jpeg',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -41,16 +42,19 @@ const personSchema = {
 	},
 	knowsAbout: [
 		'Эмотология',
-		'Работа с эмоциями',
+		'Эмоциональное выгорание',
 		'Панические атаки',
 		'Эмоциональное переедание',
-		'Выгорание',
+		'Тревожность',
 		'Психосоматика',
+		'Работа с эмоциями',
+		'Метод Шахова',
 	],
 	alumniOf: {
 		'@type': 'Person',
 		name: 'Александр Шахов',
 		description: 'Автор метода эмотологии',
+		url: 'https://ashahov.com',
 	},
 };
 
@@ -59,7 +63,7 @@ const businessSchema = {
 	'@type': 'ProfessionalService',
 	name: 'Эмотолог Алёна Опанасенко',
 	description:
-		'Индивидуальные консультации эмотолога онлайн и в Самаре. Работа с эмоциями через тело.',
+		'Индивидуальные консультации эмотолога онлайн для русскоязычных клиентов по всему миру + офлайн в Самаре. Работа с эмоциями через тело.',
 	url: Astro.site?.toString(),
 	image: ogImageUrl,
 	priceRange: '1500-2500 ₽',
@@ -69,9 +73,11 @@ const businessSchema = {
 		addressCountry: 'RU',
 	},
 	areaServed: [
+		{ '@type': 'Place', name: 'Весь мир (онлайн, русскоязычные клиенты)' },
 		{ '@type': 'Country', name: 'Россия' },
 		{ '@type': 'City', name: 'Самара' },
 	],
+	availableLanguage: 'ru',
 	provider: {
 		'@type': 'Person',
 		name: 'Опанасенко Алёна',
@@ -123,6 +129,8 @@ const businessSchema = {
 
 		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 		<script type="application/ld+json" set:html={JSON.stringify(businessSchema)} />
+
+		<Analytics />
 	</head>
 	<body class="min-h-screen bg-[#FBEEE4] text-[#6B3A32] font-sans antialiased">
 		<Nav />
