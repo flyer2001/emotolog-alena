@@ -1,0 +1,35 @@
+---
+import { pains } from '../data/pains';
+---
+
+<section id="pains" class="px-4 sm:px-6 py-20 bg-[#F5D9C8]/40">
+	<div class="max-w-5xl mx-auto space-y-12">
+		<div class="text-center space-y-4 max-w-2xl mx-auto">
+			<p class="uppercase tracking-[0.3em] text-xs text-[#C08574]">Знакомо?</p>
+			<h2 class="text-3xl sm:text-4xl font-serif text-[#6B3A32]">С чем ко мне приходят</h2>
+			<p class="text-[#8A5148]">
+				Это не «черты характера» и не «просто устала». За&nbsp;каждым — конкретная непрожитая эмоция в&nbsp;теле.
+			</p>
+		</div>
+
+		<div class="grid sm:grid-cols-2 gap-4">
+			{
+				pains.map((p) => (
+					<div class="bg-[#FBEEE4] rounded-2xl p-6 border border-[#E8B79C]/40 hover:border-[#C08574]/60 transition-colors">
+						<h3 class="font-serif text-lg text-[#6B3A32] mb-2">{p.title}</h3>
+						<p class="text-sm text-[#8A5148] leading-relaxed">{p.desc}</p>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="text-center">
+			<a
+				href="https://t.me/alenoch13"
+				class="inline-block px-6 py-3 rounded-full bg-[#C08574] text-white font-medium hover:bg-[#A56D5D] transition-colors"
+			>
+				Записаться на бесплатную консультацию
+			</a>
+		</div>
+	</div>
+</section>

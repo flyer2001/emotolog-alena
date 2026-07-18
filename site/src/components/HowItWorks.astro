@@ -1,0 +1,41 @@
+---
+const steps = [
+	{
+		num: '01',
+		title: 'Слышим тело — находим эмоцию',
+		desc: 'Учимся замечать телесные сигналы: зажим, ком в горле, тяжесть в груди. За каждым — конкретная эмоция.',
+	},
+	{
+		num: '02',
+		title: 'Снимаем блок на её проявление',
+		desc: 'Часто эмоция «запрещена» (злость нельзя, страх стыдно). Разрешаем ей быть — блок снимается.',
+	},
+	{
+		num: '03',
+		title: 'Проживаем + инструменты для самопомощи',
+		desc: 'Выбираем метод проживания под ваш запрос. В конце — конкретные инструменты, чтобы работать самостоятельно.',
+	},
+];
+---
+
+<section id="how" class="px-4 sm:px-6 py-20">
+	<div class="max-w-5xl mx-auto space-y-12">
+		<div class="text-center space-y-4 max-w-2xl mx-auto">
+			<p class="uppercase tracking-[0.3em] text-xs text-[#C08574]">Как проходит сессия</p>
+			<h2 class="text-3xl sm:text-4xl font-serif text-[#6B3A32]">3 шага метода</h2>
+			<p class="text-[#8A5148]">Формат — 60 минут онлайн, Zoom или Telegram.</p>
+		</div>
+
+		<div class="grid md:grid-cols-3 gap-6">
+			{
+				steps.map((s) => (
+					<div class="bg-[#FBEEE4] rounded-2xl p-6 border border-[#E8B79C]/40 space-y-3">
+						<p class="font-serif text-3xl text-[#C08574]">{s.num}</p>
+						<h3 class="font-serif text-lg text-[#6B3A32]">{s.title}</h3>
+						<p class="text-sm text-[#8A5148] leading-relaxed">{s.desc}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

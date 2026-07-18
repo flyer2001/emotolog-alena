@@ -1,0 +1,36 @@
+---
+const links = [
+	{ href: '#pains', label: 'С чем работаю' },
+	{ href: '#how', label: 'Как это работает' },
+	{ href: '#cases', label: 'Кейсы' },
+	{ href: '#pricing', label: 'Стоимость' },
+	{ href: '#faq', label: 'Вопросы' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-[#FBEEE4]/85 backdrop-blur-md border-b border-[#E8B79C]/40">
+	<nav class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
+		<a href="/" class="font-serif text-lg text-[#6B3A32] hover:text-[#C08574] transition-colors">
+			Алёна Опанасенко
+		</a>
+
+		<ul class="hidden md:flex items-center gap-6 text-sm">
+			{
+				links.map((l) => (
+					<li>
+						<a href={l.href} class="text-[#8A5148] hover:text-[#C08574] transition-colors">
+							{l.label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<a
+			href="https://t.me/alenoch13"
+			class="inline-block text-sm px-4 py-2 rounded-full bg-[#C08574] text-white font-medium hover:bg-[#A56D5D] transition-colors"
+		>
+			Записаться
+		</a>
+	</nav>
+</header>

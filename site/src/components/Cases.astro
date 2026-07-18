@@ -1,0 +1,33 @@
+---
+import { cases } from '../data/cases';
+---
+
+<section id="cases" class="px-4 sm:px-6 py-20">
+	<div class="max-w-5xl mx-auto space-y-12">
+		<div class="text-center space-y-4 max-w-2xl mx-auto">
+			<p class="uppercase tracking-[0.3em] text-xs text-[#C08574]">Из практики</p>
+			<h2 class="text-3xl sm:text-4xl font-serif text-[#6B3A32]">
+				Реальные кейсы с сессий
+			</h2>
+			<p class="text-[#8A5148] text-sm italic">
+				Все истории — реальные случаи из моей работы. Имена не указаны для конфиденциальности.
+			</p>
+		</div>
+
+		<div class="grid md:grid-cols-2 gap-5">
+			{
+				cases.map((c) => (
+					<article class="bg-[#FBEEE4] rounded-2xl p-6 border border-[#E8B79C]/40 space-y-3">
+						<p class="font-serif text-lg text-[#C08574] italic">«{c.quote}»</p>
+						<p class="text-sm text-[#8A5148] leading-relaxed">{c.story}</p>
+						<div class="pt-2 border-t border-[#E8B79C]/40">
+							<p class="text-xs uppercase tracking-wider text-[#6B3A32] font-medium">
+								→ {c.result}
+							</p>
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

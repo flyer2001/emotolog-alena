@@ -1,0 +1,31 @@
+---
+const items = [
+	{
+		title: 'Возврат денег',
+		desc: 'Если не почувствуете результат на сессии — верну деньги. Без вопросов.',
+	},
+	{
+		title: 'Конфиденциально',
+		desc: 'Всё, что происходит на сессии, остаётся между нами. Кейсы публикую только с разрешения.',
+	},
+	{
+		title: 'Замеряемый результат',
+		desc: 'В конце сессии измеряем изменение напряжения по шкале 0-10. Видно, что работает.',
+	},
+];
+---
+
+<section class="px-4 sm:px-6 py-20 bg-[#F5D9C8]/40">
+	<div class="max-w-5xl mx-auto">
+		<div class="grid md:grid-cols-3 gap-6">
+			{
+				items.map((item) => (
+					<div class="text-center space-y-3">
+						<h3 class="font-serif text-xl text-[#6B3A32]">{item.title}</h3>
+						<p class="text-sm text-[#8A5148] leading-relaxed">{item.desc}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

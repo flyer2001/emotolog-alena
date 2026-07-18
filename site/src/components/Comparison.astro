@@ -1,0 +1,69 @@
+---
+const cols = [
+	{
+		title: 'Классическая терапия',
+		accent: false,
+		items: [
+			'Разбираем детство, детство, детство',
+			'Полгода-год до первых сдвигов',
+			'Работа только с сознанием',
+			'Часто без замеряемого результата',
+		],
+	},
+	{
+		title: 'Коучинг / советы',
+		accent: false,
+		items: [
+			'«Просто мысли позитивно»',
+			'Игнор телесных сигналов',
+			'Мотивация, но не проработка',
+			'Симптом возвращается',
+		],
+	},
+	{
+		title: 'Эмотология',
+		accent: true,
+		items: [
+			'Идём в тело — там живёт эмоция',
+			'Результат за 1-3 сессии',
+			'Замеряемое снижение напряжения (0-10)',
+			'Возврат денег, если не почувствуете эффект',
+		],
+	},
+];
+---
+
+<section class="px-4 sm:px-6 py-20 bg-[#F5D9C8]/40">
+	<div class="max-w-5xl mx-auto space-y-12">
+		<div class="text-center space-y-4 max-w-2xl mx-auto">
+			<p class="uppercase tracking-[0.3em] text-xs text-[#C08574]">В чём разница</p>
+			<h2 class="text-3xl sm:text-4xl font-serif text-[#6B3A32]">
+				Терапия, коучинг и эмотология
+			</h2>
+		</div>
+
+		<div class="grid md:grid-cols-3 gap-4">
+			{
+				cols.map((col) => (
+					<div
+						class={`rounded-2xl p-6 space-y-4 ${col.accent ? 'bg-[#C08574] text-white shadow-lg scale-100 md:scale-105' : 'bg-[#FBEEE4] border border-[#E8B79C]/40'}`}
+					>
+						<h3
+							class={`font-serif text-xl ${col.accent ? 'text-white' : 'text-[#6B3A32]'}`}
+						>
+							{col.title}
+						</h3>
+						<ul class="space-y-2 text-sm">
+							{col.items.map((i) => (
+								<li class={`flex gap-2 ${col.accent ? 'text-white/95' : 'text-[#8A5148]'}`}>
+									<span class="mt-1">{col.accent ? '✓' : '·'}</span>
+									<span>{i}</span>
+								</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

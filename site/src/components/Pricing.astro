@@ -1,0 +1,99 @@
+---
+const plans = [
+	{
+		name: 'Экспресс-консультация',
+		price: 'Бесплатно',
+		duration: '15 минут',
+		features: [
+			'Расскажу, как работает метод',
+			'Помогу определить вашу самую острую эмоцию сейчас',
+			'Без обязательств продолжать',
+		],
+		cta: 'Записаться',
+		accent: false,
+	},
+	{
+		name: 'Разовая эмосессия',
+		price: '1 500 ₽',
+		duration: '60 минут',
+		features: [
+			'Полный алгоритм: тело → эмоция → снятие блока → проживание',
+			'Замер результата 0-10 в конце',
+			'Инструменты для самопомощи',
+			'Возврат денег, если не почувствуете результат',
+		],
+		cta: 'Записаться',
+		accent: true,
+		badge: 'Часто выбирают',
+	},
+	{
+		name: 'Пакет сессий',
+		price: 'По запросу',
+		duration: '3-5 сессий',
+		features: [
+			'Для глубокой проработки запроса',
+			'Индивидуальный график',
+			'Скидка при пакете',
+			'Обсуждается на бесплатной консультации',
+		],
+		cta: 'Обсудить',
+		accent: false,
+	},
+];
+---
+
+<section id="pricing" class="px-4 sm:px-6 py-20">
+	<div class="max-w-5xl mx-auto space-y-12">
+		<div class="text-center space-y-4 max-w-2xl mx-auto">
+			<p class="uppercase tracking-[0.3em] text-xs text-[#C08574]">Стоимость</p>
+			<h2 class="text-3xl sm:text-4xl font-serif text-[#6B3A32]">Форматы работы</h2>
+		</div>
+
+		<div class="grid md:grid-cols-3 gap-5">
+			{
+				plans.map((p) => (
+					<div
+						class={`rounded-2xl p-6 space-y-4 relative ${p.accent ? 'bg-[#C08574] text-white shadow-xl md:-translate-y-2' : 'bg-[#FBEEE4] border border-[#E8B79C]/40'}`}
+					>
+						{p.badge && (
+							<span class="absolute -top-3 left-1/2 -translate-x-1/2 text-xs uppercase tracking-wider bg-[#6B3A32] text-[#FBEEE4] px-3 py-1 rounded-full">
+								{p.badge}
+							</span>
+						)}
+
+						<h3
+							class={`font-serif text-xl ${p.accent ? 'text-white' : 'text-[#6B3A32]'}`}
+						>
+							{p.name}
+						</h3>
+
+						<div class={p.accent ? 'text-white' : 'text-[#6B3A32]'}>
+							<p class="font-serif text-3xl">{p.price}</p>
+							<p class={`text-sm ${p.accent ? 'text-white/80' : 'text-[#8A5148]'}`}>
+								{p.duration}
+							</p>
+						</div>
+
+						<ul class="space-y-2 text-sm">
+							{p.features.map((f) => (
+								<li
+									class={`flex gap-2 ${p.accent ? 'text-white/95' : 'text-[#8A5148]'}`}
+								>
+									<span class="mt-1">·</span>
+									<span>{f}</span>
+								</li>
+							))}
+						</ul>
+
+						<a
+							href="https://t.me/alenoch13"
+							class={`block text-center px-5 py-3 rounded-full font-medium transition-colors ${p.accent ? 'bg-white text-[#C08574] hover:bg-[#FBEEE4]' : 'bg-[#C08574] text-white hover:bg-[#A56D5D]'}`}
+						>
+							{p.cta}
+						</a>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
