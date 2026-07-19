@@ -4,7 +4,8 @@
 
 ## Site (alena-emotolog.ru — prod live, noindex до апрува)
 
-- [ ] **Апрув контента Алёной** — проверить все тексты (Hero, Pains, Cases, About, FAQ, Pricing) → зафиксировать правки. После апрува снять `noindex` в `site/src/layouts/Layout.astro` (`noindex = false` дефолт).
+- [ ] **Правки Алёны раунд 1** — 12 замечаний по скриншотам, ~26 точечных правок в 14 файлах. Полный разбор → `docs/feedback-v1/report.md`. Скриншоты → `docs/feedback-v1/{1..12}.jpeg`. Ключевые темы: убрать «панические атаки»/«эмоциональное переедание» (мед-диагнозы), убрать все «не» (позитив), убрать негатив в Comparison к терапии/коучингу, `Zoom+Telegram` → `Zoom+Яндекс Телемост`, цена **1500 → 2500₽**, TG-канал усилить визуально + CTA, FAQ сократить до 1 вопроса. 8 точек требуют approve формулировок от Алёны — перечислены в отчёте.
+- [ ] **Снять noindex** — после апрува правок Алёной. `site/src/layouts/Layout.astro` → `noindex = false` дефолт.
 - [ ] **Смыслы v1** — вытащить позиционирование/tone из `/root/projects/myRep/Marketing/emotolog/` (project-brief, strategy, content-library), draft'нуть tone of voice + 3 ключевых сообщения → `meanings/`. Алена approve.
 - [ ] **Конверсионные цели в Метрике** — настроить цели через `ym('reachGoal', ...)`:
   1. **`click_tg_write`** — клик по любой кнопке «Записаться» / «Написать в Telegram» (все CTA ведут на `t.me/alenoch13`)
