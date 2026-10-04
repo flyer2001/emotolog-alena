@@ -15,7 +15,7 @@ const {
 	title = 'Эмотолог Опанасенко Алёна — помощь при тревоге, выгорании, панических атаках. Онлайн по всему миру',
 	description = 'Работа с эмоциями через тело — метод эмотологии (школа А. Шахова). Результат за 1-3 сессии. Онлайн для русскоязычных клиентов по всему миру, офлайн в Самаре. Первая консультация 15 мин бесплатно. От 1500₽.',
 	noindex = true,
-	ogImage = '/alena.jpeg',
+	ogImage = '/og-default.jpg',
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -120,6 +120,10 @@ const businessSchema = {
 		<meta property="og:locale" content="ru_RU" />
 		<meta property="og:url" content={canonical} />
 		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:type" content="image/jpeg" />
+		<meta property="og:image:alt" content="Эмотолог Алёна Опанасенко — метод работы с эмоциями через тело" />
 		<meta property="og:site_name" content="Эмотолог Алёна Опанасенко" />
 
 		<meta name="twitter:card" content="summary_large_image" />
